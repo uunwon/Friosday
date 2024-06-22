@@ -1,4 +1,4 @@
-*.xconfig
+*.xcconfig
 Storage.swift
 
 # Created by https://www.toptal.com/developers/gitignore/api/xcode,swift

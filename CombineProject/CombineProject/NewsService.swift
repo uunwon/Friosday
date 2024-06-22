@@ -11,6 +11,17 @@ import Combine
 // Combine 을 사용해 네이버 검색 API 에서 뉴스를 검색하는 클래스
 struct NewsService {
     private let baseURL = "https://openapi.naver.com/v1/search/news.json"
+    private let clientID: String
+    private let clientSecret: String
+    
+    init() {
+        guard let clientID = Bundle.main.object(forInfoDictionaryKey: "CLIENT_ID") as? String,
+              let clientSecret = Bundle.main.object(forInfoDictionaryKey: "CLIENT_SECRET") as? String else {
+            fatalError("CLIENT_ID or CLIENT_SECRET not set in plist")
+        }
+        self.clientID = clientID
+        self.clientSecret = clientSecret
+    }
     
     func searchNews(query: String, page: Int, itemsPerPage: Int) -> AnyPublisher<NewsResponse, Error> {
         // URLComponents 는 URL 개발 구성 요소(스킴, 호스트, 경로, 쿼리 등) 관리하는 클래스
@@ -34,8 +45,8 @@ struct NewsService {
         }
         
         var request = URLRequest(url: url)
-        request.addValue(Storage().naverClientID, forHTTPHeaderField: "X-Naver-Client-Id")
-        request.addValue(Storage().naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
+        request.addValue(clientID, forHTTPHeaderField: "X-Naver-Client-Id")
+        request.addValue(clientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
         
         // dataTaskPublisher는 지정된 URL 요청('request')에 대해 데이터 가져오는 Publisher를 반환함
         // 이 Publisher는 네트워크 요청 시작하고, 요청 완료하면 Data와 URLResponse 전달함
