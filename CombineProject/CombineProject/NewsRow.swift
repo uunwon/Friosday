@@ -27,7 +27,7 @@ struct NewsRow: View {
                     .font(.headline)
                 Text(item.pubDate)
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundColor(.secondary)
             }
             Spacer()
         }

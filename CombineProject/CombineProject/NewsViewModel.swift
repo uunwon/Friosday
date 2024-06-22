@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-// Combine 을 사용해 네트워크 데이터를 처리하는 클래스
+// Combine 프레임워크를 사용해 뉴스 데이터를 관리하고, 뷰와 데이터를 연결하는 역할
 class NewsViewModel: ObservableObject {
     @Published var newsItems: [NewsItem] = []
     @Published var errorMessage: String?
