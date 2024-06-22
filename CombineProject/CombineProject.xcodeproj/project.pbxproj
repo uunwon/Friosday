@@ -30,6 +30,7 @@
 		5355C7102C26C93700354F83 /* NewsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRow.swift; sourceTree = "<group>"; };
 		5355C7122C26C9DA00354F83 /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		5355C7162C26D3FB00354F83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5355C7172C26D62300354F83 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +69,7 @@
 				5355C7122C26C9DA00354F83 /* NewsDetailView.swift */,
 				5355C7102C26C93700354F83 /* NewsRow.swift */,
 				534CC0CB2C250CCB00A0F07A /* NewsService.swift */,
+				5355C7172C26D62300354F83 /* Config.xcconfig */,
 				534CC0CD2C2510D500A0F07A /* NewsViewModel.swift */,
 				5355C70E2C265B4F00354F83 /* NewsItem.swift */,
 				534CC0BC2C25053300A0F07A /* Assets.xcassets */,
@@ -288,6 +290,7 @@
 		};
 		534CC0C42C25053300A0F07A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5355C7172C26D62300354F83 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -317,6 +320,7 @@
 		};
 		534CC0C52C25053300A0F07A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5355C7172C26D62300354F83 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
