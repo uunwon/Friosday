@@ -16,6 +16,7 @@ struct NewsItem: Codable, Identifiable {
     let link: String
     let description: String
     let pubDate: String
+    var imageURL: String?
     
     // JSON 키와 구조체 속성 같의 매핑을 정의하는 CodingKeys
     enum CodingKeys: String, CodingKey {
