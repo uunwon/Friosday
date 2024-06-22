@@ -17,11 +17,11 @@ class NewsViewModel: ObservableObject {
     @Published var hasMoreData = false
     @Published private var currentPage = 1
     
-    private var newsService = NewsService()
+    private let newsService = NewsService()
     private var cancellables = Set<AnyCancellable>()
     
     private var totalPage = 0
-    private var itemsPerPage = 20
+    private let itemsPerPage = 20
     
     // 스트림은 lazy 로 만들어, 사용될 때 만들어지게끔
     private lazy var searchNewsPublisher: AnyPublisher<NewsResponse, Error> = {
@@ -87,6 +87,7 @@ class NewsViewModel: ObservableObject {
                 self?.newsItems = response.items
                 self?.hasMoreData = response.items.count < response.total
                 self?.totalPage = response.total
+                self?.fetchThumnails(for: response.items)
             }
             .store(in: &cancellables)
         
@@ -128,6 +129,7 @@ class NewsViewModel: ObservableObject {
             URLSession.shared.dataTaskPublisher(for: url)
                 .map(\.data)
                 .map { String(data: $0, encoding: .utf8) ?? "" }
+                .map { self.extractThumbnailURL(from: $0) }
                 .receive(on: DispatchQueue.main)
                 .sink { completion in
                     if case .failure(let error) = completion {
