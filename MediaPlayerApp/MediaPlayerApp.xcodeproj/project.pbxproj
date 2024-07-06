@@ -11,6 +11,7 @@
 		531C892F2C37ABAE00199CA0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C892E2C37ABAE00199CA0 /* ContentView.swift */; };
 		531C89312C37ABAF00199CA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531C89302C37ABAF00199CA0 /* Assets.xcassets */; };
 		531C89342C37ABAF00199CA0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 531C89332C37ABAF00199CA0 /* Preview Assets.xcassets */; };
+		531C89602C38F74A00199CA0 /* FileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C895F2C38F74A00199CA0 /* FileItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		531C892E2C37ABAE00199CA0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		531C89302C37ABAF00199CA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		531C89332C37ABAF00199CA0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		531C895F2C38F74A00199CA0 /* FileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				531C892C2C37ABAE00199CA0 /* MediaPlayerAppApp.swift */,
 				531C892E2C37ABAE00199CA0 /* ContentView.swift */,
+				531C895F2C38F74A00199CA0 /* FileItem.swift */,
 				531C89302C37ABAF00199CA0 /* Assets.xcassets */,
 				531C89322C37ABAF00199CA0 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				531C89602C38F74A00199CA0 /* FileItem.swift in Sources */,
 				531C892F2C37ABAE00199CA0 /* ContentView.swift in Sources */,
 				531C892D2C37ABAE00199CA0 /* MediaPlayerAppApp.swift in Sources */,
 			);
