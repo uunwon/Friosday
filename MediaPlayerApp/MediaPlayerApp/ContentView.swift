@@ -20,16 +20,20 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(mediaFiles, children: \.children) { item in
-                let textIndex = item.description.index(item.description.startIndex, offsetBy: 2)
-                
-                NavigationLink {
-                    if item.description.hasPrefix("📄 song") {
-                        SongDetailView(audioFileName: String(item.description[textIndex...]))
-                    } else {
-                        VideoDetailView(videoFileName: String(item.description[textIndex...]))
-                    }
-                } label: {
+                if item.children != nil {
                     Text(item.description)
+                } else {
+                    let textIndex = item.description.index(item.description.startIndex, offsetBy: 2)
+                    
+                    NavigationLink {
+                        if item.description.hasPrefix("📄 song") {
+                            SongDetailView(audioFileName: String(item.description[textIndex...]))
+                        } else {
+                            VideoDetailView(videoFileName: String(item.description[textIndex...]))
+                        }
+                    } label: {
+                        Text(item.description)
+                    }
                 }
             }
             .navigationTitle("File")
@@ -48,5 +52,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-         .preferredColorScheme(.dark)
+//         .preferredColorScheme(.dark)
 }
