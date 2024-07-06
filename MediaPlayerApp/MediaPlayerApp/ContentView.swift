@@ -11,7 +11,7 @@ struct ContentView: View {
     @State var searchText = ""
     
     let mediaFiles: [FileItem] = [
-        FileItem(name: "song", children: [
+        FileItem(name: "audio", children: [
             FileItem(name: "song"), FileItem(name: "song2")]),
         FileItem(name: "video", children: [
             FileItem(name: "video"), FileItem(name: "video2"), FileItem(name: "video3")])
@@ -20,11 +20,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(mediaFiles, children: \.children) { item in
+                let textIndex = item.description.index(item.description.startIndex, offsetBy: 2)
+                
                 NavigationLink {
                     if item.description.hasPrefix("📄 song") {
-                        SongDetailView()
+                        SongDetailView(audioFileName: String(item.description[textIndex...]))
                     } else {
-                        VideoDetailView()
+                        VideoDetailView(videoFileName: String(item.description[textIndex...]))
                     }
                 } label: {
                     Text(item.description)
