@@ -20,7 +20,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(mediaFiles, children: \.children) { item in
-                Text(item.description)
+                NavigationLink {
+                    if item.description.hasPrefix("📄 song") {
+                        SongDetailView()
+                    } else {
+                        VideoDetailView()
+                    }
+                } label: {
+                    Text(item.description)
+                }
             }
             .navigationTitle("File")
             .toolbar {
