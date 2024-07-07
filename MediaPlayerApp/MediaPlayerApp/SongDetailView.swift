@@ -9,22 +9,17 @@ import SwiftUI
 import AVFoundation
 
 struct SongDetailView: View {
-    var audioPlayerManager = AudioPlayerManager()
+    @ObservedObject var audioPlayerManager = AudioPlayerManager()
     
     @State var audioFileName: String
     @State var playAudio = false
-    
-    @State var progress: CGFloat = 0.4
-    @State private var playing: Bool = false
-    @State var duration: Double = 0.0
-    @State var formattedDuration: String = "05:00"
-    @State var formattedProgress: String = "00:00"
     
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var backButton: some View {
         Button {
+            audioPlayerManager.pause()
             self.presentationMode.wrappedValue.dismiss()
         } label: {
             HStack {
@@ -49,17 +44,17 @@ struct SongDetailView: View {
                     .background(
                         Capsule()
                             .foregroundStyle(Color.white)
-                            .frame(width: geo.size.width * progress, height: 3), alignment: .leading)
+                            .frame(width: geo.size.width * audioPlayerManager.progress, height: 3), alignment: .leading)
             }.frame(height: 3)
             
             HStack {
-                Text(formattedProgress)
+                Text(audioPlayerManager.formattedProgress)
                     .font(.system(size: 14))
                     .padding(.leading)
                     
                 Spacer()
                 
-                Text(formattedDuration)
+                Text(audioPlayerManager.formattedDuration)
                     .font(.system(size: 14))
                     .padding(.trailing)
             }
@@ -81,11 +76,11 @@ struct SongDetailView: View {
             }
             .padding(.bottom, 20.0)
             
-            Text("Right Now")
-                .font(.system(size: 20))
+            Text(audioFileName)
+                .font(.system(size: 25))
                 .padding(.bottom, 3.0)
             
-            Text("NewJeans")
+            Text("yunwon")
                 .font(.system(size: 13))
             
             Spacer()
@@ -97,28 +92,37 @@ struct SongDetailView: View {
                 
                 Spacer()
                 
-                Image(systemName: "backward.end")
-                    .font(.system(size: 30, weight: .thin))
+                Button(action: {
+                    audioPlayerManager.backPlay()
+                }, label: {
+                    Image(systemName: "backward.end")
+                        .tint(colorScheme == .dark ? Color.white : Color.black)
+                        .font(.system(size: 30, weight: .light))
+                })
                 
                 Spacer()
                 
                 Button(action: {
-                    if !playAudio {
+                    if !audioPlayerManager.isPlay {
                         audioPlayerManager.play()
                     } else {
                         audioPlayerManager.pause()
                     }
-                    playAudio.toggle()
                 }, label: {
-                    Image(systemName: !playAudio ? "play" : "pause")
+                    Image(systemName: !audioPlayerManager.isPlay ? "play" : "pause")
                         .tint(colorScheme == .dark ? Color.white : Color.black)
                         .font(.system(size: 45, weight: .thin))
                 })
                 
                 Spacer()
                 
-                Image(systemName: "forward.end")
-                    .font(.system(size: 30, weight: .thin))
+                Button(action: {
+                    audioPlayerManager.nextPlay()
+                }, label: {
+                    Image(systemName: "forward.end")
+                        .tint(colorScheme == .dark ? Color.white : Color.black)
+                        .font(.system(size: 30, weight: .light))
+                })
                 
                 Spacer()
                 
