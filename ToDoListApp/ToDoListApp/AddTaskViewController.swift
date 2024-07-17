@@ -39,7 +39,7 @@ enum DueDateType {
             return tag == TOMORROW_BUTTON_TAG
         case .none:
             return tag == NODUE_BUTTON_TAG
-        case .someday(let date):
+        case .someday(_):
             return tag == DATEPICKER_TAG
         }
     }
@@ -51,6 +51,8 @@ class AddTaskViewController: UIViewController {
             updateDueButtons()
         }
     }
+    
+    var completionHandler: (() -> Void)?
     
     private var taskTextField: UITextField = {
        let textField = UITextField()
@@ -70,7 +72,7 @@ class AddTaskViewController: UIViewController {
             if let picker = action.sender as? UIDatePicker {
                 print("date: \(picker.date.ISO8601Format())")
                 self?.dueDate = .someday(date: picker.date)
-                picker.resignFirstResponder()
+                self?.dismiss(animated: false)
             }
         }, for: .valueChanged)
         return datePicker
@@ -220,7 +222,7 @@ class AddTaskViewController: UIViewController {
         if let taskText = self.taskTextField.text, !taskText.isEmpty {
             TodoStore.shared.addTodo(todo: Todo(id: UUID(), task: taskText, date: dueDate.getDate(), isDone: false))
             print(TodoStore.shared.getList())
-            dismiss(animated: true)
+            dismiss(animated: true, completion: completionHandler)
         } else {
             let alert = UIAlertController(title: "할 일을 입력하세요", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .cancel))

@@ -32,8 +32,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         button.configuration = config
         button.addAction(UIAction { [weak self] _ in
-            let navi = UINavigationController(rootViewController: AddTaskViewController())
-            self?.navigationController?.present(navi, animated: true)
+            let addTaskViewController = AddTaskViewController()
+            addTaskViewController.completionHandler = { [weak self] in
+                self?.tableView.reloadData()
+            }
+            let navi = UINavigationController(rootViewController: addTaskViewController)
+            self?.present(navi, animated: true)
         }, for: .touchUpInside)
         
         return button
@@ -44,7 +48,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return [
             tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            tableView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200)
         ]
     }()
     
@@ -74,11 +79,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        TodoStore.shared.listCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
+        let todo = TodoStore.shared.getTodo(at: indexPath)
+        var config = cell.defaultContentConfiguration()
+        config.text = todo.task
+        cell.contentConfiguration = config
         return cell
     }
 }

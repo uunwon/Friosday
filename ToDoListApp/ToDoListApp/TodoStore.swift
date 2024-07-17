@@ -19,8 +19,12 @@ class TodoStore {
     static let shared = TodoStore()
     private var todoList: [Todo]
     
+    var listCount: Int {
+        return todoList.count
+    }
+    
     private init() {
-        todoList = []
+        todoList = [Todo(id: UUID(), task: "Test", date: Date(), isDone: false)]
     }
     
     func addTodo(todo: Todo) {
@@ -29,6 +33,10 @@ class TodoStore {
     
     func removeTodo(todo: Todo) {
         todoList = todoList.filter { $0.id != todo.id }
+    }
+    
+    func getTodo(at: IndexPath) -> Todo {
+        return todoList[at.row]
     }
     
     func getList() -> [Todo] {
