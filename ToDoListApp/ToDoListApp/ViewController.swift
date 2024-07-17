@@ -22,12 +22,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let button = UIButton(type: .custom)
         button.setTitle("Add Task", for: .normal)
         button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         
         var config = UIButton.Configuration.filled()
         config.cornerStyle = .capsule
         config.imagePadding = 10.0
+        config.baseBackgroundColor = .black
+        config.baseForegroundColor = .white
+        
         button.configuration = config
-        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addAction(UIAction { [weak self] _ in
+            self?.navigationController?.present(AddTaskViewController(), animated: true)
+        }, for: .touchUpInside)
+        
         return button
     }()
     
@@ -51,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.title = "TODO"
         
-        view.backgroundColor = .lemon
+        view.backgroundColor = .white
         view.addSubview(tableView)
         view.addSubview(addButton)
     }
