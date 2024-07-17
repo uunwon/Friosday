@@ -32,7 +32,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         button.configuration = config
         button.addAction(UIAction { [weak self] _ in
-            self?.navigationController?.present(AddTaskViewController(), animated: true)
+            let navi = UINavigationController(rootViewController: AddTaskViewController())
+            self?.navigationController?.present(navi, animated: true)
         }, for: .touchUpInside)
         
         return button
