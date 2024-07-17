@@ -18,6 +18,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return tableView
     }()
     
+    private lazy var addButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setTitle("Add Task", for: .normal)
+        button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+        
+        var config = UIButton.Configuration.filled()
+        config.cornerStyle = .capsule
+        config.imagePadding = 10.0
+        button.configuration = config
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private lazy var tableViewConstraints: [NSLayoutConstraint] = {
         let safeArea = view.safeAreaLayoutGuide
         return [
@@ -27,12 +40,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ]
     }()
     
+    private lazy var addButtonConstraints: [NSLayoutConstraint] = {
+        return [
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TODO"
         
         view.backgroundColor = .lemon
         view.addSubview(tableView)
+        view.addSubview(addButton)
     }
     
     override func viewIsAppearing(_ animated: Bool) {
@@ -41,7 +62,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Methods
     func updateLayout() {
-        NSLayoutConstraint.activate(tableViewConstraints)
+        NSLayoutConstraint.activate(tableViewConstraints + addButtonConstraints)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
