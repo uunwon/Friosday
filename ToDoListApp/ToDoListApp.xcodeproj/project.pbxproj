@@ -14,7 +14,6 @@
 		532BB8DA2C4122ED0010671F /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 532BB8D92C4122ED0010671F /* Base */; };
 		5368A6102C478AA600DE9140 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368A60F2C478AA600DE9140 /* AddTaskViewController.swift */; };
 		5368A6122C47E69200DE9140 /* TodoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368A6112C47E69200DE9140 /* TodoStore.swift */; };
-		5368A6142C47EF0900DE9140 /* SampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5368A6132C47EF0900DE9140 /* SampleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		532BB8DB2C4122ED0010671F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5368A60F2C478AA600DE9140 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		5368A6112C47E69200DE9140 /* TodoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoStore.swift; sourceTree = "<group>"; };
-		5368A6132C47EF0900DE9140 /* SampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 				532BB8CF2C4122EC0010671F /* SceneDelegate.swift */,
 				532BB8D12C4122EC0010671F /* ViewController.swift */,
 				5368A60F2C478AA600DE9140 /* AddTaskViewController.swift */,
-				5368A6132C47EF0900DE9140 /* SampleViewController.swift */,
 				5368A6112C47E69200DE9140 /* TodoStore.swift */,
 				532BB8D62C4122ED0010671F /* Assets.xcassets */,
 				532BB8D82C4122ED0010671F /* LaunchScreen.storyboard */,
@@ -145,7 +142,6 @@
 			files = (
 				532BB8D22C4122EC0010671F /* ViewController.swift in Sources */,
 				5368A6122C47E69200DE9140 /* TodoStore.swift in Sources */,
-				5368A6142C47EF0900DE9140 /* SampleViewController.swift in Sources */,
 				5368A6102C478AA600DE9140 /* AddTaskViewController.swift in Sources */,
 				532BB8CE2C4122EC0010671F /* AppDelegate.swift in Sources */,
 				532BB8D02C4122EC0010671F /* SceneDelegate.swift in Sources */,

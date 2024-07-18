@@ -7,6 +7,16 @@
 
 import UIKit
 
+extension Date {
+    var isToday: Bool {
+        return Calendar.current.isDateInToday(self)
+    }
+    
+    var isTomorrow: Bool {
+        return Calendar.current.isDateInTomorrow(self)
+    }
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -69,6 +79,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         ]
     }()
     
+    var todayTodos: [Todo] {
+        return TodoStore.shared.getList().filter { $0.date?.isToday ?? false }
+    }
+    
+    var tomorrowTodos: [Todo] {
+        return TodoStore.shared.getList().filter { $0.date?.isTomorrow ?? false }
+    }
+    
+    var noDateTodos: [Todo] {
+        return TodoStore.shared.getList().filter { $0.date == nil }
+    }
+    
+    var otherTodos: [Todo] {
+        return TodoStore.shared.getList().filter {
+            !($0.date?.isToday ?? false) && !($0.date?.isTomorrow ?? false) && $0.date != nil
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "TODO"
@@ -92,16 +120,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             NSLayoutConstraint.activate(emptyAddButtonCenterConstraints)
         }
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        4
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        TodoStore.shared.listCount
+        switch section {
+        case 0:
+            return todayTodos.count
+        case 1:
+            return tomorrowTodos.count
+        case 2:
+            return noDateTodos.count
+        case 3:
+            return otherTodos.count
+        default:
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
-        let todo = TodoStore.shared.getTodo(at: indexPath)
+        
+        guard let todo: Todo = switch indexPath.section {
+        case 0: todayTodos[indexPath.row]
+        case 1: tomorrowTodos[indexPath.row]
+        case 2: noDateTodos[indexPath.row]
+        case 3: otherTodos[indexPath.row]
+        default: nil
+        } else {
+            fatalError("No Todo Data")
+        }
+        
         var config = cell.defaultContentConfiguration()
         config.text = todo.task
+        
+        if let dueDate = todo.date {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            formatter.timeStyle = .none
+            config.secondaryText = formatter.string(from: dueDate)
+            
+            if dueDate < Date() {
+                config.secondaryTextProperties.color = .red
+            } else {
+                config.secondaryTextProperties.color = .gray
+            }
+        }
+        
         cell.contentConfiguration = config
         return cell
     }
