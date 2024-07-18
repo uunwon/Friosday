@@ -37,8 +37,9 @@ class TodoStore {
     }
     
     func updateTodo(todo: Todo) {
-        removeTodo(todo: todo)
-        addTodo(todo: todo)
+        if let index = todoList.firstIndex(where: { $0.id == todo.id }) {
+            todoList[index] = todo
+        }
     }
     
     func removeTodo(todo: Todo) {
@@ -50,7 +51,6 @@ class TodoStore {
     }
     
     func getList() -> [Todo] {
-        let list = todoList
-        return list
+        return todoList
     }
 }

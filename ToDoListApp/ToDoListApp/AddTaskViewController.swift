@@ -46,8 +46,8 @@ enum DueDateType {
 }
 
 class AddTaskViewController: UIViewController {
-    var dueDate: DueDateType = .none {
-        didSet {
+    var dueDate: DueDateType = .none { // 초기 값: '미지정'
+        didSet { // didSet 블록 안에 작성한 코드는 해당 프로퍼티의 값이 변경될 때마다 자동으로 호출된다
             updateDueButtons()
         }
     }
@@ -208,6 +208,8 @@ class AddTaskViewController: UIViewController {
         NSLayoutConstraint.activate(taskTextFieldConstraints + dueDateStackViewConstraints + submitButtonConstraints)
     }
     
+    /*  dueDateStackView 의 하위 뷰들을 순회하면서,
+        각 하위 뷰가 'UIButton' 일 경우 해당 버튼의 선택 상태를 업데이트 */
     private func updateDueButtons() {
         dueDateStackView.subviews.forEach { element in
             if let button = element as? UIButton {

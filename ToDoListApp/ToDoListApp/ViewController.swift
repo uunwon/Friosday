@@ -24,6 +24,7 @@ enum TodoError: Error {
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.backgroundColor = .white
         tableView.delegate = self
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +50,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let addTaskViewController = AddTaskViewController()
             addTaskViewController.completionHandler = { [weak self] in
                 self?.updateLayout()
+                /*
+                 reloadData(): 데이터를 다시 로드하기 위해 데이터 소스에 있는 아래 세 가지 메서드를 호출
+                 numberOfSections(in:), tableView(_:numberOfRowsInSection:), tableView(_:cellForRowAt:)
+                 */
                 self?.tableView.reloadData()
             }
             let navi = UINavigationController(rootViewController: addTaskViewController)
@@ -105,7 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         self.title = "TODO"
         
-        view.backgroundColor = .white
+        view.backgroundColor = .lemon
         view.addSubview(tableView)
         view.addSubview(addButton)
     }
@@ -160,7 +165,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         do {
             let todo = try getTodo(for: indexPath)
             var config = cell.defaultContentConfiguration()
+            
             config.text = todo.task
+            config.attributedText = nil
+            
+            if todo.isDone {
+                let attributedString = NSMutableAttributedString(string: todo.task)
+                attributedString.addAttribute(.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: attributedString.length))
+                config.attributedText = attributedString
+            } else {
+                config.text = todo.task
+            }
             
             if let dueDate = todo.date {
                 let formatter = DateFormatter()
@@ -169,12 +184,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 config.secondaryText = formatter.string(from: dueDate)
                 
                 if dueDate < Date() {
-                    config.secondaryTextProperties.color = .red
+                    config.secondaryTextProperties.color = .wine
                 } else {
                     config.secondaryTextProperties.color = .gray
                 }
             }
-            config.image = UIImage(systemName: todo.isDone ? "checkmark.square.fill" : "checkmark.square")
+            config.image = UIImage(systemName: todo.isDone ? "checkmark.square.fill" : "checkmark.square")?.withTintColor(.lemon, renderingMode: .alwaysOriginal)
             
             cell.contentConfiguration = config
             cell.selectionStyle = .none
