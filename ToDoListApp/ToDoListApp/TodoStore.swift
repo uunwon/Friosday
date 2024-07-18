@@ -24,7 +24,7 @@ class TodoStore {
     }
     
     private init() {
-        todoList = [Todo(id: UUID(), task: "Test", date: Date(), isDone: false)]
+        todoList = []
     }
     
     func addTodo(todo: Todo) {

@@ -34,6 +34,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         button.addAction(UIAction { [weak self] _ in
             let addTaskViewController = AddTaskViewController()
             addTaskViewController.completionHandler = { [weak self] in
+                self?.updateLayout()
                 self?.tableView.reloadData()
             }
             let navi = UINavigationController(rootViewController: addTaskViewController)
@@ -43,20 +44,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return button
     }()
     
+    private lazy var emptyAddButtonCenterConstraints: [NSLayoutConstraint] = {
+        return [
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ]
+    }()
+    
+    private lazy var addButtonBottomConstraints: [NSLayoutConstraint] = {
+        let safeArea = view.safeAreaLayoutGuide
+        return [
+            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            addButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -16)
+        ]
+    }()
+    
     private lazy var tableViewConstraints: [NSLayoutConstraint] = {
         let safeArea = view.safeAreaLayoutGuide
         return [
             tableView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            tableView.heightAnchor.constraint(greaterThanOrEqualToConstant: 200)
-        ]
-    }()
-    
-    private lazy var addButtonConstraints: [NSLayoutConstraint] = {
-        return [
-            addButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            tableView.bottomAnchor.constraint(equalTo: addButton.topAnchor, constant: -20)
         ]
     }()
     
@@ -75,7 +84,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - Methods
     func updateLayout() {
-        NSLayoutConstraint.activate(tableViewConstraints + addButtonConstraints)
+        if TodoStore.shared.listCount > 0 {
+            NSLayoutConstraint.deactivate(emptyAddButtonCenterConstraints)
+            NSLayoutConstraint.activate(tableViewConstraints + addButtonBottomConstraints)
+        } else {
+            NSLayoutConstraint.deactivate(tableViewConstraints + addButtonBottomConstraints)
+            NSLayoutConstraint.activate(emptyAddButtonCenterConstraints)
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
