@@ -23,7 +23,7 @@ enum DueDateType {
         case .today:
             return Date()
         case .tomorrow:
-            return Calendar.current.date(bySetting: .day, value: 1, of: Date())
+            return Calendar.current.date(byAdding: .day, value: 1, to: Date())
         case .none:
             return nil
         case .someday(let date):

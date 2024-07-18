@@ -25,7 +25,7 @@ class TodoStore {
     
     private init() {
         todoList = [
-            Todo(id: UUID(), task: "오늘 할 일", date: Date(), isDone: false),
+            Todo(id: UUID(), task: "오늘 할 일", date: Date(), isDone: true),
             Todo(id: UUID(), task: "내일 할 일", date: Calendar.current.date(byAdding: .day, value: 1, to: Date()), isDone: false),
             Todo(id: UUID(), task: "미지정 할 일", date: nil, isDone: false),
             Todo(id: UUID(), task: "추후 할 일", date: Calendar.current.date(byAdding: .month, value: 1 , to: Date()), isDone: false),
@@ -34,6 +34,11 @@ class TodoStore {
     
     func addTodo(todo: Todo) {
         todoList.append(todo)
+    }
+    
+    func updateTodo(todo: Todo) {
+        removeTodo(todo: todo)
+        addTodo(todo: todo)
     }
     
     func removeTodo(todo: Todo) {

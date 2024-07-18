@@ -169,8 +169,54 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         
+        config.image = UIImage(systemName: todo.isDone ? "checkmark.square.fill" : "checkmark.square")
+        
         cell.contentConfiguration = config
+        cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let todo: Todo = switch indexPath.section {
+        case 0: todayTodos[indexPath.row]
+        case 1: tomorrowTodos[indexPath.row]
+        case 2: noDateTodos[indexPath.row]
+        case 3: otherTodos[indexPath.row]
+        default: nil
+        } else {
+            fatalError("No Todo Data")
+        }
+        
+        TodoStore.shared.updateTodo(todo: Todo(id: todo.id, task: todo.task, date: todo.date, isDone: !todo.isDone))
+        tableView.reloadRows(at: [indexPath], with: .fade)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: "오늘"
+        case 1: "내일"
+        case 2: "미지정"
+        case 3: "그 외"
+        default: nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            guard let todo: Todo = switch indexPath.section {
+            case 0: todayTodos[indexPath.row]
+            case 1: tomorrowTodos[indexPath.row]
+            case 2: noDateTodos[indexPath.row]
+            case 3: otherTodos[indexPath.row]
+            default: nil
+            } else {
+                fatalError("No Todo Data")
+            }
+            
+            TodoStore.shared.removeTodo(todo: todo)
+            tableView.reloadData()
+            updateLayout()
+        }
     }
 }
 
