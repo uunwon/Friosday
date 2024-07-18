@@ -17,6 +17,10 @@ extension Date {
     }
 }
 
+enum TodoError: Error {
+    case notFound
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .insetGrouped)
@@ -121,6 +125,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func getTodo(for indexPath: IndexPath) throws -> Todo {
+        switch indexPath.section {
+        case 0: todayTodos[indexPath.row]
+        case 1: tomorrowTodos[indexPath.row]
+        case 2: noDateTodos[indexPath.row]
+        case 3: otherTodos[indexPath.row]
+        default: throw TodoError.notFound
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         4
     }
@@ -143,52 +157,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
         
-        guard let todo: Todo = switch indexPath.section {
-        case 0: todayTodos[indexPath.row]
-        case 1: tomorrowTodos[indexPath.row]
-        case 2: noDateTodos[indexPath.row]
-        case 3: otherTodos[indexPath.row]
-        default: nil
-        } else {
-            fatalError("No Todo Data")
-        }
-        
-        var config = cell.defaultContentConfiguration()
-        config.text = todo.task
-        
-        if let dueDate = todo.date {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .short
-            formatter.timeStyle = .none
-            config.secondaryText = formatter.string(from: dueDate)
+        do {
+            let todo = try getTodo(for: indexPath)
+            var config = cell.defaultContentConfiguration()
+            config.text = todo.task
             
-            if dueDate < Date() {
-                config.secondaryTextProperties.color = .red
-            } else {
-                config.secondaryTextProperties.color = .gray
+            if let dueDate = todo.date {
+                let formatter = DateFormatter()
+                formatter.dateStyle = .short
+                formatter.timeStyle = .none
+                config.secondaryText = formatter.string(from: dueDate)
+                
+                if dueDate < Date() {
+                    config.secondaryTextProperties.color = .red
+                } else {
+                    config.secondaryTextProperties.color = .gray
+                }
             }
+            config.image = UIImage(systemName: todo.isDone ? "checkmark.square.fill" : "checkmark.square")
+            
+            cell.contentConfiguration = config
+            cell.selectionStyle = .none
+        } catch TodoError.notFound {
+            print("Not Found")
+        } catch {
+            print("Other")
         }
         
-        config.image = UIImage(systemName: todo.isDone ? "checkmark.square.fill" : "checkmark.square")
-        
-        cell.contentConfiguration = config
-        cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let todo: Todo = switch indexPath.section {
-        case 0: todayTodos[indexPath.row]
-        case 1: tomorrowTodos[indexPath.row]
-        case 2: noDateTodos[indexPath.row]
-        case 3: otherTodos[indexPath.row]
-        default: nil
-        } else {
-            fatalError("No Todo Data")
+        if let todo: Todo = try? getTodo(for: indexPath) {
+            TodoStore.shared.updateTodo(todo: Todo(id: todo.id, task: todo.task, date: todo.date, isDone: !todo.isDone))
+            tableView.reloadRows(at: [indexPath], with: .fade)
         }
-        
-        TodoStore.shared.updateTodo(todo: Todo(id: todo.id, task: todo.task, date: todo.date, isDone: !todo.isDone))
-        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -202,17 +205,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            guard let todo: Todo = switch indexPath.section {
-            case 0: todayTodos[indexPath.row]
-            case 1: tomorrowTodos[indexPath.row]
-            case 2: noDateTodos[indexPath.row]
-            case 3: otherTodos[indexPath.row]
-            default: nil
-            } else {
-                fatalError("No Todo Data")
-            }
-            
+        if editingStyle == .delete,
+           let todo: Todo = try? getTodo(for: indexPath) {
             TodoStore.shared.removeTodo(todo: todo)
             tableView.reloadData()
             updateLayout()
