@@ -23,7 +23,7 @@ struct SociallyAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            PostView()
+            FeedView()
                 .environmentObject(PostViewModel())
 //            Group {
 //                if authModel.user == nil {
