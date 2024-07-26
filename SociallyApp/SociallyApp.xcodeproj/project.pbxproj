@@ -18,6 +18,7 @@
 		5315C37A2C53264A00BD03C1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3792C53264A00BD03C1 /* Post.swift */; };
 		5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37B2C53268500BD03C1 /* PostViewModel.swift */; };
 		5315C37E2C53273900BD03C1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37D2C53273900BD03C1 /* PostView.swift */; };
+		5315C3802C532AD000BD03C1 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37F2C532AD000BD03C1 /* FeedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		5315C3792C53264A00BD03C1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5315C37B2C53268500BD03C1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5315C37D2C53273900BD03C1 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		5315C37F2C532AD000BD03C1 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				5315C3792C53264A00BD03C1 /* Post.swift */,
 				5315C37D2C53273900BD03C1 /* PostView.swift */,
 				5315C37B2C53268500BD03C1 /* PostViewModel.swift */,
+				5315C37F2C532AD000BD03C1 /* FeedView.swift */,
 				5315C3642C5323BC00BD03C1 /* Assets.xcassets */,
 				5315C3662C5323BC00BD03C1 /* Preview Content */,
 			);
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315C3802C532AD000BD03C1 /* FeedView.swift in Sources */,
 				5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */,
 				5315C37A2C53264A00BD03C1 /* Post.swift in Sources */,
 				5315C37E2C53273900BD03C1 /* PostView.swift in Sources */,
