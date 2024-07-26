@@ -1,4 +1,5 @@
 *.xcconfig
+*.plist
 Storage.swift
 resource/
 album.imageset/
