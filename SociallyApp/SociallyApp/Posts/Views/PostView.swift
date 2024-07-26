@@ -11,7 +11,9 @@ import PhotosUI
 struct PostView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject private var viewModel: PostViewModel
+    
     @State private var description = ""
+    @State var isUploading = false
     
     @State var data: Data?
     @State var selectedItem: [PhotosPickerItem] = []
@@ -52,9 +54,13 @@ struct PostView: View {
                 
                 Section {
                     Button(action: {
-                            self.viewModel.addData(description: description, 
+                            // 로딩 시작
+                            isUploading = true
+                            self.viewModel.addData(description: description,
                                                    datePublished: Date(),
                                                    data: data!) { error in
+                                // 로딩 제거
+                                isUploading = false
                                 if let error = error {
                                     print("\(error)")
                                     return
@@ -65,6 +71,7 @@ struct PostView: View {
                     }) {
                         Text("Post")
                     }
+                    .disabled(isUploading)
                 }
             }
             .navigationTitle("New Post")
