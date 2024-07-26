@@ -75,15 +75,10 @@
 		5315C35F2C5323BA00BD03C1 /* SociallyApp */ = {
 			isa = PBXGroup;
 			children = (
+				5315C38D2C53620800BD03C1 /* Accounts */,
+				5315C38C2C5361FD00BD03C1 /* Posts */,
 				5315C3892C53436800BD03C1 /* SociallyApp.entitlements */,
 				5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */,
-				5315C3792C53264A00BD03C1 /* Post.swift */,
-				5315C37D2C53273900BD03C1 /* PostView.swift */,
-				5315C37B2C53268500BD03C1 /* PostViewModel.swift */,
-				5315C37F2C532AD000BD03C1 /* FeedView.swift */,
-				5315C3842C5334B900BD03C1 /* AuthViewModel.swift */,
-				5315C3862C53366300BD03C1 /* SignUpView.swift */,
-				5315C38A2C5350D100BD03C1 /* ProfileView.swift */,
 				5315C3642C5323BC00BD03C1 /* Assets.xcassets */,
 				5315C3662C5323BC00BD03C1 /* Preview Content */,
 			);
@@ -96,6 +91,67 @@
 				5315C3672C5323BC00BD03C1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		5315C38C2C5361FD00BD03C1 /* Posts */ = {
+			isa = PBXGroup;
+			children = (
+				5315C3922C53624100BD03C1 /* Models */,
+				5315C3912C53623B00BD03C1 /* ViewModels */,
+				5315C3902C53623600BD03C1 /* Views */,
+			);
+			path = Posts;
+			sourceTree = "<group>";
+		};
+		5315C38D2C53620800BD03C1 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				5315C38F2C53621800BD03C1 /* ViewModels */,
+				5315C38E2C53621200BD03C1 /* Views */,
+			);
+			path = Accounts;
+			sourceTree = "<group>";
+		};
+		5315C38E2C53621200BD03C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5315C3862C53366300BD03C1 /* SignUpView.swift */,
+				5315C38A2C5350D100BD03C1 /* ProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5315C38F2C53621800BD03C1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5315C3842C5334B900BD03C1 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5315C3902C53623600BD03C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5315C37D2C53273900BD03C1 /* PostView.swift */,
+				5315C37F2C532AD000BD03C1 /* FeedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5315C3912C53623B00BD03C1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5315C37B2C53268500BD03C1 /* PostViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5315C3922C53624100BD03C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5315C3792C53264A00BD03C1 /* Post.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
