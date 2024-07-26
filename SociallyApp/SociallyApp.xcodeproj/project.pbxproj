@@ -21,6 +21,7 @@
 		5315C3822C53327900BD03C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3812C53327900BD03C1 /* GoogleService-Info.plist */; };
 		5315C3852C5334B900BD03C1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3842C5334B900BD03C1 /* AuthViewModel.swift */; };
 		5315C3872C53366300BD03C1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3862C53366300BD03C1 /* SignUpView.swift */; };
+		5315C38B2C5350D100BD03C1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C38A2C5350D100BD03C1 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		5315C3842C5334B900BD03C1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		5315C3862C53366300BD03C1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		5315C3892C53436800BD03C1 /* SociallyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SociallyApp.entitlements; path = ../../../../.Trash/SociallyApp.entitlements; sourceTree = "<group>"; };
+		5315C38A2C5350D100BD03C1 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				5315C37F2C532AD000BD03C1 /* FeedView.swift */,
 				5315C3842C5334B900BD03C1 /* AuthViewModel.swift */,
 				5315C3862C53366300BD03C1 /* SignUpView.swift */,
+				5315C38A2C5350D100BD03C1 /* ProfileView.swift */,
 				5315C3642C5323BC00BD03C1 /* Assets.xcassets */,
 				5315C3662C5323BC00BD03C1 /* Preview Content */,
 			);
@@ -175,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315C38B2C5350D100BD03C1 /* ProfileView.swift in Sources */,
 				5315C3802C532AD000BD03C1 /* FeedView.swift in Sources */,
 				5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */,
 				5315C3852C5334B900BD03C1 /* AuthViewModel.swift in Sources */,
