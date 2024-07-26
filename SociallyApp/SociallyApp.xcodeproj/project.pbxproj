@@ -23,6 +23,7 @@
 		5315C3872C53366300BD03C1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3862C53366300BD03C1 /* SignUpView.swift */; };
 		5315C38B2C5350D100BD03C1 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C38A2C5350D100BD03C1 /* ProfileView.swift */; };
 		5315C3952C53743B00BD03C1 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3942C53743B00BD03C1 /* FirebaseAnalytics */; };
+		5315C3972C53755500BD03C1 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3962C53755500BD03C1 /* FirebaseAnalyticsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315C3972C53755500BD03C1 /* FirebaseAnalyticsSwift in Frameworks */,
 				5315C3722C5325E000BD03C1 /* FirebaseAuth in Frameworks */,
 				5315C3782C5325E000BD03C1 /* FirebaseStorage in Frameworks */,
 				5315C3742C5325E000BD03C1 /* FirebaseFirestore in Frameworks */,
@@ -186,6 +188,7 @@
 				5315C3752C5325E000BD03C1 /* FirebaseFirestoreSwift */,
 				5315C3772C5325E000BD03C1 /* FirebaseStorage */,
 				5315C3942C53743B00BD03C1 /* FirebaseAnalytics */,
+				5315C3962C53755500BD03C1 /* FirebaseAnalyticsSwift */,
 			);
 			productName = SociallyApp;
 			productReference = 5315C35D2C5323BA00BD03C1 /* SociallyApp.app */;
@@ -497,6 +500,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5315C3702C5325E000BD03C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
+		};
+		5315C3962C53755500BD03C1 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5315C3702C5325E000BD03C1 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
