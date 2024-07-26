@@ -10,7 +10,6 @@
 		5315C3612C5323BA00BD03C1 /* SociallyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */; };
 		5315C3652C5323BC00BD03C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3642C5323BC00BD03C1 /* Assets.xcassets */; };
 		5315C3682C5323BC00BD03C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3672C5323BC00BD03C1 /* Preview Assets.xcassets */; };
-		5315C36F2C53251700BD03C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5315C36E2C53251700BD03C1 /* GoogleService-Info.plist */; };
 		5315C3722C5325E000BD03C1 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3712C5325E000BD03C1 /* FirebaseAuth */; };
 		5315C3742C5325E000BD03C1 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3732C5325E000BD03C1 /* FirebaseFirestore */; };
 		5315C3762C5325E000BD03C1 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3752C5325E000BD03C1 /* FirebaseFirestoreSwift */; };
@@ -19,6 +18,9 @@
 		5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37B2C53268500BD03C1 /* PostViewModel.swift */; };
 		5315C37E2C53273900BD03C1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37D2C53273900BD03C1 /* PostView.swift */; };
 		5315C3802C532AD000BD03C1 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37F2C532AD000BD03C1 /* FeedView.swift */; };
+		5315C3822C53327900BD03C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3812C53327900BD03C1 /* GoogleService-Info.plist */; };
+		5315C3852C5334B900BD03C1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3842C5334B900BD03C1 /* AuthViewModel.swift */; };
+		5315C3872C53366300BD03C1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3862C53366300BD03C1 /* SignUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,11 +28,14 @@
 		5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociallyAppApp.swift; sourceTree = "<group>"; };
 		5315C3642C5323BC00BD03C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5315C3672C5323BC00BD03C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		5315C36E2C53251700BD03C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5315C3792C53264A00BD03C1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5315C37B2C53268500BD03C1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5315C37D2C53273900BD03C1 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		5315C37F2C532AD000BD03C1 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		5315C3812C53327900BD03C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5315C3842C5334B900BD03C1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5315C3862C53366300BD03C1 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		5315C3892C53436800BD03C1 /* SociallyApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = SociallyApp.entitlements; path = ../../../../.Trash/SociallyApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +56,7 @@
 		5315C3542C5323BA00BD03C1 = {
 			isa = PBXGroup;
 			children = (
-				5315C36E2C53251700BD03C1 /* GoogleService-Info.plist */,
+				5315C3812C53327900BD03C1 /* GoogleService-Info.plist */,
 				5315C35F2C5323BA00BD03C1 /* SociallyApp */,
 				5315C35E2C5323BA00BD03C1 /* Products */,
 			);
@@ -68,11 +73,14 @@
 		5315C35F2C5323BA00BD03C1 /* SociallyApp */ = {
 			isa = PBXGroup;
 			children = (
+				5315C3892C53436800BD03C1 /* SociallyApp.entitlements */,
 				5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */,
 				5315C3792C53264A00BD03C1 /* Post.swift */,
 				5315C37D2C53273900BD03C1 /* PostView.swift */,
 				5315C37B2C53268500BD03C1 /* PostViewModel.swift */,
 				5315C37F2C532AD000BD03C1 /* FeedView.swift */,
+				5315C3842C5334B900BD03C1 /* AuthViewModel.swift */,
+				5315C3862C53366300BD03C1 /* SignUpView.swift */,
 				5315C3642C5323BC00BD03C1 /* Assets.xcassets */,
 				5315C3662C5323BC00BD03C1 /* Preview Content */,
 			);
@@ -156,7 +164,7 @@
 			files = (
 				5315C3682C5323BC00BD03C1 /* Preview Assets.xcassets in Resources */,
 				5315C3652C5323BC00BD03C1 /* Assets.xcassets in Resources */,
-				5315C36F2C53251700BD03C1 /* GoogleService-Info.plist in Resources */,
+				5315C3822C53327900BD03C1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +177,8 @@
 			files = (
 				5315C3802C532AD000BD03C1 /* FeedView.swift in Sources */,
 				5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */,
+				5315C3852C5334B900BD03C1 /* AuthViewModel.swift in Sources */,
+				5315C3872C53366300BD03C1 /* SignUpView.swift in Sources */,
 				5315C37A2C53264A00BD03C1 /* Post.swift in Sources */,
 				5315C37E2C53273900BD03C1 /* PostView.swift in Sources */,
 				5315C3612C5323BA00BD03C1 /* SociallyAppApp.swift in Sources */,
@@ -302,9 +312,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SociallyApp/SociallyApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SociallyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -317,7 +329,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.uunwon.SociallyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.Socially;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -330,9 +342,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SociallyApp/SociallyAppRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SociallyApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 59FP2PXRXK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -345,7 +359,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.co.uunwon.SociallyApp;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.co.codegrove.Socially;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
