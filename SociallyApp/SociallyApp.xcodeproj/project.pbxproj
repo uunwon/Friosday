@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5315C3612C5323BA00BD03C1 /* SociallyAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */; };
-		5315C3632C5323BA00BD03C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3622C5323BA00BD03C1 /* ContentView.swift */; };
 		5315C3652C5323BC00BD03C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3642C5323BC00BD03C1 /* Assets.xcassets */; };
 		5315C3682C5323BC00BD03C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5315C3672C5323BC00BD03C1 /* Preview Assets.xcassets */; };
 		5315C36F2C53251700BD03C1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5315C36E2C53251700BD03C1 /* GoogleService-Info.plist */; };
@@ -18,17 +17,18 @@
 		5315C3782C5325E000BD03C1 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5315C3772C5325E000BD03C1 /* FirebaseStorage */; };
 		5315C37A2C53264A00BD03C1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C3792C53264A00BD03C1 /* Post.swift */; };
 		5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37B2C53268500BD03C1 /* PostViewModel.swift */; };
+		5315C37E2C53273900BD03C1 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315C37D2C53273900BD03C1 /* PostView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5315C35D2C5323BA00BD03C1 /* SociallyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SociallyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SociallyAppApp.swift; sourceTree = "<group>"; };
-		5315C3622C5323BA00BD03C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5315C3642C5323BC00BD03C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5315C3672C5323BC00BD03C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5315C36E2C53251700BD03C1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5315C3792C53264A00BD03C1 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5315C37B2C53268500BD03C1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		5315C37D2C53273900BD03C1 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				5315C3602C5323BA00BD03C1 /* SociallyAppApp.swift */,
-				5315C3622C5323BA00BD03C1 /* ContentView.swift */,
 				5315C3792C53264A00BD03C1 /* Post.swift */,
+				5315C37D2C53273900BD03C1 /* PostView.swift */,
 				5315C37B2C53268500BD03C1 /* PostViewModel.swift */,
 				5315C3642C5323BC00BD03C1 /* Assets.xcassets */,
 				5315C3662C5323BC00BD03C1 /* Preview Content */,
@@ -166,7 +166,7 @@
 			files = (
 				5315C37C2C53268500BD03C1 /* PostViewModel.swift in Sources */,
 				5315C37A2C53264A00BD03C1 /* Post.swift in Sources */,
-				5315C3632C5323BA00BD03C1 /* ContentView.swift in Sources */,
+				5315C37E2C53273900BD03C1 /* PostView.swift in Sources */,
 				5315C3612C5323BA00BD03C1 /* SociallyAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
