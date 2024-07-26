@@ -34,7 +34,7 @@ class AuthViewModel: ObservableObject {
     func uploadProfileImage(_ imageData: Data) {
         let storageReference = Storage.storage().reference().child("\(UUID().uuidString)")
         storageReference.putData(imageData, metadata: nil) { metadata, error in
-            if let error = error {
+            if error != nil {
                 return
             }
             

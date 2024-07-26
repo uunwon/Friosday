@@ -14,17 +14,18 @@ import FirebaseStorage
 class PostViewModel: ObservableObject {
     
     private var databaseReference = Firestore.firestore().collection("Posts")
-    let storageReference = Storage.storage().reference().child("\(UUID().uuidString)")
     
     // 주어진 데이터를 Firestore "Posts" 컬렉션에 새 문서로 추가함
     func addData(description: String, datePublished: Date, data: Data, completion: @escaping (Error?) -> Void) {
+        let storageReference = Storage.storage().reference().child("\(UUID().uuidString)")
+        
         storageReference.putData(data, metadata: nil) { metadata, error in
             if let error = error {
                 completion(error)
                 return
             }
             
-            self.storageReference.downloadURL { url, error in
+            storageReference.downloadURL { url, error in
                 if let error = error {
                     completion(error)
                     return
