@@ -23,20 +23,22 @@ struct SociallyAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FeedView()
-                .environmentObject(PostViewModel())
-//            Group {
-//                if authModel.user == nil {
-//                    SignUpView()
-//                } else {
-//                    FeedView()
-//                        .environmentObject(PostViewModel())
-//                }
-//            }
-//            .environmentObject(authModel)
-//            .onAppear {
-//                authModel.listenToAuthState()
-//            }
+            TabView {
+                if authModel.user != nil {
+                    FeedView()
+                        .tabItem {
+                            Image(systemName: "text.bubble")
+                            Text("Feeds")
+                        }
+                }
+                ProfileView()
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Account")
+                    }
+            }
+            .environmentObject(authModel)
+            .environmentObject(PostViewModel())
         }
     }
 }
