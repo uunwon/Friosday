@@ -13,7 +13,7 @@ struct FeedView: View {
     @EnvironmentObject private var authModel: AuthViewModel
     @EnvironmentObject private var viewModel: PostViewModel
     
-    @FirestoreQuery(collectionPath: "Posts", predicates: [.order(by: "datePublished", descending: true)]) var posts: [Post]
+    @FirestoreQuery(collectionPath: "Posts", predicates: [.order(by: "datePublished", descending: false), .order(by: "datePublished", descending: true)]) var posts: [Post]
     
     @State var showingPost: Bool = false
     
