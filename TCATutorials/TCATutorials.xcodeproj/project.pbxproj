@@ -12,6 +12,7 @@
 		53090FEB2C58BA26008D142A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53090FEA2C58BA26008D142A /* Assets.xcassets */; };
 		53090FEE2C58BA26008D142A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53090FED2C58BA26008D142A /* Preview Assets.xcassets */; };
 		53090FF62C58BAE3008D142A /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 53090FF52C58BAE3008D142A /* ComposableArchitecture */; };
+		53090FF82C58C2AB008D142A /* CounterFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53090FF72C58C2AB008D142A /* CounterFeature.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		53090FE82C58BA25008D142A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53090FEA2C58BA26008D142A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53090FED2C58BA26008D142A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		53090FF72C58C2AB008D142A /* CounterFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterFeature.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				53090FE62C58BA25008D142A /* TCATutorialsApp.swift */,
+				53090FF72C58C2AB008D142A /* CounterFeature.swift */,
 				53090FE82C58BA25008D142A /* ContentView.swift */,
 				53090FEA2C58BA26008D142A /* Assets.xcassets */,
 				53090FEC2C58BA26008D142A /* Preview Content */,
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53090FF82C58C2AB008D142A /* CounterFeature.swift in Sources */,
 				53090FE92C58BA25008D142A /* ContentView.swift in Sources */,
 				53090FE72C58BA25008D142A /* TCATutorialsApp.swift in Sources */,
 			);
